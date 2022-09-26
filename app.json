@@ -1,11 +1,11 @@
 {
-    "name": "EvaMariaBot",
-    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
+    "name": "JoeyKing",
+    "description": "When you send a something on telegram channel, I will save that in my database, So you can search for it easily",
     "stack": "container",
     "keywords": [
       "telegram",
-      "auto-filter",
-      "filter",
+      "Searching",
+      "File",
       "best",
       "indian",
       "pyrogram",
@@ -15,8 +15,8 @@
       "index",
       "inline"
     ],
-    "website": "https://github.com/EvamariaTG/EvaMaria",
-    "repository": "https://github.com/EvamariaTG/EvaMaria",
+    "website": "https://github.com/JoeykingTG/JoeyKing",
+    "repository": "https://github.com/JoeykingTG/JoeyKing",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
