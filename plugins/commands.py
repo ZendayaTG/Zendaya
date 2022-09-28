@@ -23,7 +23,7 @@ async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [
             [
-                InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
+                InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/LordshipMovies')
             ],
             [
                 InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -45,9 +45,9 @@ async def start(client, message):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
+            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/LordshipMovies')
             ],[
-            InlineKeyboardButton('Movie Bot🎥', url='https://t.me/LordshipMovies'),
+            InlineKeyboardButton('Series Bot🎥', url='https://t.me/Lordship_Series'),
             InlineKeyboardButton('Adult Bot🔞', url='https://t.me/Adultship')
             ],[
             InlineKeyboardButton('Help ⚙', callback_data='help'),
@@ -94,9 +94,9 @@ async def start(client, message):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
+            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/LordshipMovies')
             ],[
-            InlineKeyboardButton('Series Bot🎥', url='https://t.me/LordshipMovies'),
+            InlineKeyboardButton('Series Bot🎥', url='https://t.me/Lordship_series'),
             InlineKeyboardButton('Adult Bot🔞', url='https://t.me/Adultship')
             ],[
             InlineKeyboardButton('Help ⚙', callback_data='help'),
