@@ -1,27 +1,27 @@
 class script(object):
     START_TXT = """<b>𝙷𝙴𝙻𝙾 {} 🥰🙋‍♀</b>
     
-<b>Hey Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Series Auto-Filter Bot.</b>
+<b>Hey Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Movie Auto-Filter Bot.</b>
 
-<b>You Can Use Me As An Auto-filter in Your Series Group.... Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Tons of Movies There..😍</b>"""
+<b>Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Tons of Movies There..😍</b>"""
     HELP_TXT = """𝙷𝙴𝚈 {}
     
 <b>○ PLEASE DONT SPAM ME...🤒</b>
     
 𝙷𝙴𝚁𝙴 𝙸𝚂 𝚃𝙷𝙴 𝙷𝙴𝙻𝙿 𝙵𝙾𝚁 𝙼𝚈 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂."""
     OWNER_TXT = """<b>✯ CREATOR: Hislordship</b>
-<b>✯ MOVIE CHANNEL: <a href=https://t.me/+R59lJd9RGV1iNzZk>Movie Collection</a></b>
+<b>✯ MOVIE CHANNEL: <a href=https://t.me/+R59lJd9RGV1iNzZk>Hislordship Movies</a></b>
 <b>✯ SERIES CHANNEL: <a href=https://t.me/+YqsbYu4L9NExNDI0>LordshipTV</a></b>
 <b>✯ CREDIT: Everyone in this journey</b>"""
     SOURCE_TXT = """<b>NOTE:</b>
 <b>DEVELOPED BY:</b>
-- <a href=https://t.me/+R59lJd9RGV1iNzZk>MOVIE COLLECTION</a></b>"""
+- <a href=https://t.me/+R59lJd9RGV1iNzZk>Hislordship Movies</a></b>"""
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
 - Filter is the feature were users can set automated replies for a particular keyword and EvaMaria will respond whenever a keyword is found the message
 
 <b>NOTE:</b>
-1. eva maria should have admin privillage.
+1. I should have admin privillage.
 2. only admins can add filters in a chat.
 3. alert buttons have a limit of 64 characters.
 
