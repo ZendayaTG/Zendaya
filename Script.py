@@ -3,7 +3,7 @@ class script(object):
     
 <b>Hey Sweetheart, My Name Is <a href=https://t.me/{}>{}</a>. I'm a Powerful Series Auto-Filter Bot.</b>
 
-<b>Its Easy To Use Me; Just Add Me To Your Group As Admin, Thats All, i will Provide Tons of series There..😍</b>"""
+<b>Just send in the series name. Thats All, and i will Provide Tons of series There..😍</b>"""
     HELP_TXT = """𝙷𝙴𝚈 {}
     
 <b>○ PLEASE DONT SPAM ME...🤒</b>
