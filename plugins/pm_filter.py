@@ -419,9 +419,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('Search Here 🔍', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/LordshipMovies')
+            InlineKeyboardButton('Updates Channel🍿🎬', url='https://t.me/Lordship_series')
             ],[
-            InlineKeyboardButton('Series Bot🎥', url='https://t.me/Lordship_Series'),
+            InlineKeyboardButton('Series Bot🎥', url='https://t.me/Lordshipmovies'),
             InlineKeyboardButton('Adult Bot🔞', url='https://t.me/Adultship')
             ],[
             InlineKeyboardButton('Help ⚙', callback_data='help'),
@@ -453,7 +453,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/Lordshipmovies'),
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/Lordship_series'),
             InlineKeyboardButton('♥️ Source', callback_data='source')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
@@ -628,13 +628,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
     elif query.data == 'dupe':
-        await query.answer("⚡ For better results, narrow down your search using the following examples:\n\t\t\t\t\t\t- Movie Name year\n\t\t\t\t\t\t- Eg: Uncharted 2022\n\t\t\t\t\t\t- Eg: Blonde 2022 720p\n\nⒸ Hislordship", True) 
+        await query.answer("⚡ For better results, narrow down your search using the following examples:\n\t\t\t\t\t\t- Series Name\n\t\t\t\t\t\t- Eg: Riverdale S01\n\t\t\t\t\t\t- Eg: Ozark S02E04\n\nⒸ Hislordship", True) 
     elif query.data == 'tips':
         await query.answer("📌 Search with the correct spelling\n\n📌 Don't include special characters like ( , + - : ' \ > &) in your search \n\nⒸ Hislordship", True)
     elif query.data == 'reqst1':
         await query.answer("Hey Dear 😍\n\n🎯 Click On The Quality that you want below, And Start The Bot for the first time.\n\nFrom the second time, I'll will deliver the files to your PM myself.⬇️", True)
     elif query.data == 'info':
-        await query.answer("✴️ Information ✴️\n\nUse @mcrequestbot to request for movies or series that are not available here on my database\n\n❇️ Don't search for series here!! use the series group for that\n\nⒸ Hislordship", True)        
+        await query.answer("✴️ Information ✴️\n\nUse @mcrequestbot to request for movies or series that are not available here on my database\n\n❇️ Don't search for movies here!! use the movie group for that\n\nⒸ Hislordship", True)        
     try: await query.answer('Loading... please wait ⏳')
     except: pass
     
@@ -823,7 +823,7 @@ async def advantage_spell_chok(msg):
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
     await asyncio.sleep(2)
-    zz1 = await zz.edit("I couldn't find anything related to that\nDid you mean any one of these?\n\nIf the movie you want is the one below, click on it",                
+    zz1 = await zz.edit("I couldn't find anything related to that\nDid you mean any one of these?\n\nIf the series you want is the one below, click on it",                
                     reply_markup=InlineKeyboardMarkup(btn))
     await asyncio.sleep(17)
     await zz1.delete()    
