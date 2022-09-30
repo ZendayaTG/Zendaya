@@ -114,7 +114,7 @@ async def next_page(bot, query):
     else:
         btn.append(
             [
-                InlineKeyboardButton("🔙 ᴩᴀɢᴇ", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"🗓 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
                 InlineKeyboardButton("ɴᴇxᴛ ⏭️", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
@@ -376,7 +376,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     caption=f_caption,
                     protect_content=True if ident == "filep" else False 
                 )
-                await query.answer('My love check your private message, I have sent you the file!!🥰🤝', show_alert=True)
+                await query.answer('My love check your private message, I have sent you the file!!🥰🤝', show_alert=False)
         except UserIsBlocked:
             await query.answer('Sweetie please unblock the bot! (Go to your settings and check privacy settings and the check your block users and unblock the bot there', show_alert=True)
         except PeerIdInvalid:
