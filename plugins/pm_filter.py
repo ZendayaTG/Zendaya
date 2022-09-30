@@ -64,7 +64,7 @@ async def next_page(bot, query):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'files#{file.file_id}'
+                    text=f"⚡{get_size(file.file_size)} {file.file_name}", callback_data=f'files#{file.file_id}'
                 ),
             ]
             for file in files
@@ -82,6 +82,18 @@ async def next_page(bot, query):
             ]
             for file in files
         ]
+    btn.insert(0, 
+        [
+            InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
+        ]
+    )
+    btn.insert(1,
+        [
+            InlineKeyboardButton(f'🗃 Files: {len(files)}', 'dupe'),
+            InlineKeyboardButton(f'🎁 Tips', 'tips'),
+            InlineKeyboardButton(f'📮 Info', 'info')
+        ]
+    )        
 
     if 0 < offset <= 10:
         off_set = 0
@@ -91,20 +103,20 @@ async def next_page(bot, query):
         off_set = offset - 10
     if n_offset == 0:
         btn.append(
-            [InlineKeyboardButton("🔙 PREVIOUS", callback_data=f"next_{req}_{key}_{off_set}"),
+            [InlineKeyboardButton("🔙 ʙᴀᴄᴋ", callback_data=f"next_{req}_{key}_{off_set}"),
              InlineKeyboardButton(f"📑 Pages {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}",
                                   callback_data="pages")]
         )
     elif off_set is None:
         btn.append(
             [InlineKeyboardButton(f"🗓 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-             InlineKeyboardButton("NEXT ⏭️", callback_data=f"next_{req}_{key}_{n_offset}")])
+             InlineKeyboardButton("ɴᴇxᴛ ⏭️", callback_data=f"next_{req}_{key}_{n_offset}")])
     else:
         btn.append(
             [
-                InlineKeyboardButton("🔙 PREVIOUS", callback_data=f"next_{req}_{key}_{off_set}"),
+                InlineKeyboardButton("🔙 ᴩᴀɢᴇ", callback_data=f"next_{req}_{key}_{off_set}"),
                 InlineKeyboardButton(f"🗓 {math.ceil(int(offset) / 10) + 1} / {math.ceil(total / 10)}", callback_data="pages"),
-                InlineKeyboardButton("NEXT ⏭️", callback_data=f"next_{req}_{key}_{n_offset}")
+                InlineKeyboardButton("ɴᴇxᴛ ⏭️", callback_data=f"next_{req}_{key}_{n_offset}")
             ],
         )
     try:
@@ -136,7 +148,7 @@ async def advantage_spoll_choker(bot, query):
             await auto_filter(bot, query, k)
         else:
             k = await query.message.edit('Sorry Sweetheart, your request is not on my DataBase. First of all, Read the pinned message and follow the instructions and examples I gave there. if its still unavailable, then Use @mcrequestbot to request for it. please make sure you follow the request format there or my owner will skip your request. Thank youuu 🥰')
-            await asyncio.sleep(30)
+            await asyncio.sleep(25)
             await k.delete()
 
 
@@ -413,7 +425,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('Adult Bot🔞', url='https://t.me/Adultship')
             ],[
             InlineKeyboardButton('Help ⚙', callback_data='help'),
-            InlineKeyboardButton('🥰🅾︎🆆︎🅽︎🅴︎🆁︎', callback_data='owner')                                       
+            InlineKeyboardButton('♻️ ᴀʙᴏᴜᴛ ♻️', callback_data='about')                                       
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -441,14 +453,15 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('🅃🄴🄻🄴🄶🅁🄰🄼', url='https://t.me/Manlikerex'),
+            InlineKeyboardButton('🤖 Updates', url='https://t.me/Lordshipmovies'),
+            InlineKeyboardButton('♥️ Source', callback_data='source')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
             InlineKeyboardButton('🔐 Close', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
-            text=script.OWNER_TXT,
+            text=script.ABOUT_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -614,9 +627,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ]
             reply_markup = InlineKeyboardMarkup(buttons)
             await query.message.edit_reply_markup(reply_markup)
-    await query.answer('Loading... please wait ⏳')
-
-
+    elif query.data == 'dupe':
+        await query.answer("⚡ For better results, narrow down your search using the following examples:\n\t\t\t\t\t\t- Movie Name year\n\t\t\t\t\t\t- Eg: Uncharted 2022\n\t\t\t\t\t\t- Eg: Blonde 2022 720p\n\nⒸ Hislordship", True) 
+    elif query.data == 'tips':
+        await query.answer("📌 Search with the correct spelling\n\n📌 Don't include special characters like ( , + - : ' \ > &) in your search \n\nⒸ Hislordship", True)
+    elif query.data == 'reqst1':
+        await query.answer("Hey Dear 😍\n\n🎯 Click On The Quality that you want below, And Start The Bot for the first time.\n\nFrom the second time, I'll will deliver the files to your PM myself.⬇️", True)
+    elif query.data == 'info':
+        await query.answer("✴️ Information ✴️\n\nUse @mcrequestbot to request for movies or series that are not available here on my database\n\n❇️ Don't search for series here!! use the series group for that\n\nⒸ Hislordship", True)        
+    try: await query.answer('Loading... please wait ⏳')
+    except: pass
+    
+    
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
@@ -643,7 +665,7 @@ async def auto_filter(client, msg, spoll=False):
         btn = [
             [
                 InlineKeyboardButton(
-                    text=f"[{get_size(file.file_size)}] {file.file_name}", callback_data=f'{pre}#{file.file_id}'
+                    text=f"⚡{get_size(file.file_size)} {file.file_name}", callback_data=f'{pre}#{file.file_id}'
                 ),
             ]
             for file in files
@@ -662,7 +684,19 @@ async def auto_filter(client, msg, spoll=False):
             ]
             for file in files
         ]
-
+    btn.insert(0, 
+        [
+            InlineKeyboardButton(f'🎬 {search} 🎬', 'reqst1')
+        ]
+    )
+    btn.insert(1,
+        [
+            InlineKeyboardButton(f'🗃 Files: {len(files)}', 'dupe'),
+            InlineKeyboardButton(f'🎁 Tips', 'tips'),
+            InlineKeyboardButton(f'📮 Info', 'info')
+        ]
+    ) 
+    
     if offset != "":
         key = f"{message.chat.id}-{message.id}"
         BUTTONS[key] = search
@@ -671,14 +705,14 @@ async def auto_filter(client, msg, spoll=False):
             [InlineKeyboardButton(text=f"🗓 1/{math.ceil(int(total_results) / 10)}", callback_data="pages"),
              InlineKeyboardButton(text="NEXT ⏩", callback_data=f"next_{req}_{key}_{offset}")]
         )
-        btn.insert(0,
+        btn.insert(2,
             [InlineKeyboardButton(text="🔞 JOIN OUR ADULT CHANNEL HERE",url="https://t.me/+83dNsgyhMmI4OTNk")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="🗓 1/1", callback_data="pages")]
         )
-        btn.insert(0,
+        btn.insert(2,
             [InlineKeyboardButton(text="🔞 JOIN OUR ADULT CHANNEL HERE",url="https://t.me/+83dNsgyhMmI4OTNk")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
@@ -716,21 +750,25 @@ async def auto_filter(client, msg, spoll=False):
             **locals()
         )
     else:
-        cap = f"Sweetie, Here is what i found for your query {search}"
+        cap = f"<b>Hey 👋🏻 {message.from_user.mention} 😍\n\n<i>🔖 Title : {search}\n📫 Your Files are Ready Now</i></b>"
     if imdb and imdb.get('poster'):
         try:
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
+            fmsg= await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
                                       reply_markup=InlineKeyboardMarkup(btn))
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            fmsg = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
-            await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+            fmsg = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
-        await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
+        fmsg = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
+        
+    await asyncio.sleep(300)
+    await fmsg.delete()
+        
         await msg.message.delete()
 
 
@@ -784,9 +822,11 @@ async def advantage_spell_chok(msg):
         )
     ] for k, movie in enumerate(movielist)]
     btn.append([InlineKeyboardButton(text="Close", callback_data=f'spolling#{user}#close_spellcheck')])
-    await msg.reply("I couldn't find anything related to that\nDid you mean any one of these?",
+    await asyncio.sleep(2)
+    zz1 = await zz.edit("I couldn't find anything related to that\nDid you mean any one of these?\n\nIf the movie you want is the one below, click on it",                
                     reply_markup=InlineKeyboardMarkup(btn))
-
+    await asyncio.sleep(17)
+    await zz1.delete()    
 
 async def manual_filters(client, message, text=False):
     group_id = message.chat.id
@@ -805,10 +845,10 @@ async def manual_filters(client, message, text=False):
                 try:
                     if fileid == "None":
                         if btn == "[]":
-                            await client.send_message(group_id, reply_text, disable_web_page_preview=True)
+                            fmsg = await client.send_message(group_id, reply_text, disable_web_page_preview=True)
                         else:
                             button = eval(btn)
-                            await client.send_message(
+                            fmsg = await client.send_message(
                                 group_id,
                                 reply_text,
                                 disable_web_page_preview=True,
@@ -816,7 +856,7 @@ async def manual_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                     elif btn == "[]":
-                        await client.send_cached_media(
+                        fmsg = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
@@ -824,7 +864,7 @@ async def manual_filters(client, message, text=False):
                         )
                     else:
                         button = eval(btn)
-                        await message.reply_cached_media(
+                        fmsg = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
